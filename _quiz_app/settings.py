@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'quizes.apps.QuizesConfig',
     'question.apps.QuestionConfig',
     'results.apps.ResultsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'quizes' / 'static'
 ]
+STATIC_ROOT = BASE_DIR / 'sataticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

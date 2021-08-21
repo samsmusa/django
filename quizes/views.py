@@ -4,6 +4,7 @@ from question.models import Answer, Question
 from results.models import Result
 from django.views.generic import ListView
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 class QuizListView(ListView):
@@ -17,6 +18,7 @@ def quiz_view(request, pk):
     }
     return render(request, 'quizes/quiz.html',context )
 
+login_required(login_url="users:login")
 def quiz_data_view(request, pk):
     quiz = Quiz.objects.get(pk=pk)
     questions = []
@@ -31,6 +33,7 @@ def quiz_data_view(request, pk):
         'time':quiz.time,
     })
 
+login_required(login_url="users:login")
 def save_quiz_view(request, pk):
     if request.is_ajax():
         question = []
